@@ -1,0 +1,8 @@
+#include <stdio.h>
+int main(){
+	int h = -1;
+	while( h < 0 ){
+	printf("enter : "); scanf("%d",&h);
+	if(h<0) printf("?????");
+}
+}
