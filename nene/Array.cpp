@@ -1,24 +1,34 @@
 #include <stdio.h>
 #include <string.h>
-int compare(char s[50],char w[10]){
-	int i,j,count;
-	int lengths,lengthw;
-	lengths = strlen(s);
-	lengthw = strlen(w);
-	for(i=0 ; i < lengths ; i++){
-		if(s[i] == w[0]{
-		for(j=1 ; j < lengthw ; j++){
-			if(s[i+j] != w[j]) break;
+int main() {
+	char sentence[50];
+	char word[15];
+
+	printf("Input sentence : "); gets(sentence);
+	printf("Input word to compare : "); gets(word);
+
+	char cp[1][15];
+	char cp2[50][50];
+	int lengths, count = 0, lengthw, location  = 0;
+	lengths = strlen(sentence);
+	lengthw = strlen(word);
+
+	int i,j;
+	for(i=0; i < lengthw; i++){
+		cp[0][i] = word[i];
+	}
+	for(i=0; i < lengths; i++){
+		for(j=0; j < lengthw; j++){
+			cp2[location][j] = sentence[i+j];
+		}
+		location++;
+	}
+
+	for(i=0; i<location; i++){
+		if(strcmp(cp[0],cp2[i]) == 0) {
 			count++;
-			}
 		}
 	}
-	printf("%d",count);
-}
-int main(){
-	char s[50];
-	char w[10];
-	printf("Please input sentence : "); scanf("%s",s);
-	printf("Please input word  to compare : "); scanf("%s",w);
-	compare(s,w);
+	//printf("%d %s\n",location,cp2[4]);
+	printf("%s find %d word\n",cp[0],count);
 }
